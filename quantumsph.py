@@ -120,9 +120,22 @@ def main():
    
 def kernel(r, h, deriv):
   """ SPH Gaussian smoothing kernel (1D).
-  Input: distance r, scaling length h, derivative order deriv
-  Output: weight
-  """
+    
+    Parameters
+    ----------
+    r : np.array
+        Distance vector.
+    h : float
+        Scaling length.
+    deriv : int
+        Derivative order.
+
+    Returns
+    -------
+    ker : np.array
+        Weight vector.
+
+    """    
   return {
     '0': h**-1 / np.sqrt(np.pi) * np.exp(-r**2/h**2),
     '1': h**-3 / np.sqrt(np.pi) * np.exp(-r**2/h**2) * (-2*r),
@@ -134,9 +147,22 @@ def kernel(r, h, deriv):
    
 def density(x, m, h):
   """ Compute density at each of the particle locations using smoothing kernel
-  Input: positions x, SPH particle mass m, scaling length h
-  Output: density
-  """
+
+    Parameters
+    ----------
+    x : np.array
+        Position vector.
+    m : float
+        SPH particle mass.
+    h : float
+        Scaling length.
+
+    Returns
+    -------
+    rho : np.array
+        Density vector.
+
+    """
   
   n = x.size
   rho = np.zeros((n,1))
@@ -154,11 +180,26 @@ def density(x, m, h):
 
  
 def pressure(x, rho, m, h):
-  """Compute ``pressure'' at each of the particles using smoothing kernel
-  P = -(1/4)*(d^2 rho /dx^2 - (d rho / dx)^2/rho)
-  Input: positions x, densities rho, SPH particle mass m, scaling length h
-  Output: pressure
-  """
+  """ Compute ``pressure'' at each of the particles using smoothing kernel
+      P = -(1/4)*(d^2 rho /dx^2 - (d rho / dx)^2/rho)
+
+    Parameters
+    ----------
+    x : np.array
+        Position vector.
+    rho : np.array
+        Density vector.
+    m : float
+        SPH particle mass.
+    h : float
+        Scaling length.
+
+    Returns
+    -------
+    P : np.array
+        Pressure vector.
+
+    """  
   
   n = x.size
   drho = np.zeros((n,1))
@@ -190,9 +231,30 @@ def pressure(x, rho, m, h):
  
  
 def acceleration( x, u, m, rho, P, b, h):
-  """ Calculates acceletaion of each particle due to quantum pressure, harmonic potential, velocity damping
-  Input: positions x, velocities u, SPH particle mass m, densities rho, pressure P, damping coeff b, scaling length h
-  Output: accelerations
+  """Calculates acceleration of each particle due to quantum pressure, harmonic potential, velocity damping
+
+    Parameters
+    ----------
+    x : np.array
+        Position vector.
+    u : np.array
+        Velocity vector.
+    m : float
+        SPH particle mass.
+    rho : np.array
+        Density vector.
+    P : np.array
+        Pressure vector.
+    b : float
+        Damping coefficient.
+    h : float
+        Scaling length.
+
+    Returns
+    -------
+    a : np.array
+        Acceleration vector.
+
   """
 	
   n = x.size
@@ -220,10 +282,25 @@ def acceleration( x, u, m, rho, P, b, h):
 
 
 def probeDensity(x, m, h, xx):
-  """ Probe the density at arbitrary locations
-  Input: positions x, SPH particle mass m, scaling length h, probe locations xx
-  Output: density at evenly spaced points
-  """	
+  """ Probe the density at specified locations
+
+    Parameters
+    ----------
+    x : np.array
+        Position vector.
+    m : float
+        SPH particle mass.
+    h : float
+        Scaling length.
+    xx : np.array
+        Probe locations.
+
+    Returns
+    -------
+    rr : np.array
+        Density at probing locations.
+
+    """
 
   nxx  = xx.size
   rr = np.zeros((nxx,1))

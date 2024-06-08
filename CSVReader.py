@@ -48,6 +48,6 @@ def read_and_plot(file_name) :
     return
 
 if __name__ == "__main__":
-    for file in ["results_py.csv","results.csv"] :
+    for file in ["results.csv"] :
         read_and_plot(file)
     
