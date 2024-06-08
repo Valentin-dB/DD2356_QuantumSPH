@@ -1,4 +1,0 @@
-var searchData=
-[
-  ['freematrix_6',['FreeMatrix',['../quantumsph__Memorize_8c.html#a770021cff261753c637d5cfecbd651d9',1,'FreeMatrix(double **A):&#160;quantumsph_Memorize.c'],['../quantumsph__MPI_8c.html#a770021cff261753c637d5cfecbd651d9',1,'FreeMatrix(double **A):&#160;quantumsph_MPI.c'],['../quantumsph__OMP__Initial_8c.html#a770021cff261753c637d5cfecbd651d9',1,'FreeMatrix(double **A):&#160;quantumsph_OMP_Initial.c'],['../quantumsph__OMP__Memorize16_8c.html#a770021cff261753c637d5cfecbd651d9',1,'FreeMatrix(double **A):&#160;quantumsph_OMP_Memorize16.c'],['../quantumsph__OMP__Memorize32_8c.html#a770021cff261753c637d5cfecbd651d9',1,'FreeMatrix(double **A):&#160;quantumsph_OMP_Memorize32.c'],['../quantumsph__OMP__Memorize64_8c.html#a770021cff261753c637d5cfecbd651d9',1,'FreeMatrix(double **A):&#160;quantumsph_OMP_Memorize64.c']]]
-];
